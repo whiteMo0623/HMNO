@@ -32,29 +32,29 @@ This keeps the repository reviewable and avoids pushing multi-gigabyte artifacts
 
 ```text
 HMNO/
-├── hmno/
-│   ├── data.py
-│   ├── losses.py
-│   ├── metrics.py
-│   ├── models.py
-│   └── utils.py
-├── scripts/
-│   ├── preprocess.py
-│   ├── train_hmno.py
-│   ├── evaluate_hmno.py
-│   ├── run_rank_sweep.py
-│   ├── run_lambda_sweep.py
-│   └── data_generation/
-├── configs/
-│   ├── hmno.yaml
-│   ├── rank_sweep.yaml
-│   └── lambda_sweep.yaml
-├── docs/
-│   ├── DATA.md
-│   ├── REPRODUCIBILITY.md
-│   └── REVIEWER4_TRANSPARENCY.md
-├── requirements.txt
-└── README.md
++-- hmno/
+|   +-- data.py
+|   +-- losses.py
+|   +-- metrics.py
+|   +-- models.py
+|   +-- utils.py
++-- scripts/
+|   +-- preprocess.py
+|   +-- train_hmno.py
+|   +-- evaluate_hmno.py
+|   +-- run_rank_sweep.py
+|   +-- run_lambda_sweep.py
+|   +-- data_generation/
++-- configs/
+|   +-- hmno.yaml
+|   +-- rank_sweep.yaml
+|   +-- lambda_sweep.yaml
++-- docs/
+|   +-- DATA.md
+|   +-- REPRODUCIBILITY.md
+|   +-- REVIEWER4_TRANSPARENCY.md
++-- requirements.txt
++-- README.md
 ```
 
 ## Environment
@@ -83,11 +83,11 @@ The preprocessing script expects a design CSV and a CFD directory:
 
 ```text
 project_root/
-├── rack_crac_design.csv
-└── data/
-    ├── 1/VTM/region_0.vtu
-    ├── 2/VTM/region_0.vtu
-    └── ...
++-- rack_crac_design.csv
++-- data/
+    +-- 1/VTM/region_0.vtu
+    +-- 2/VTM/region_0.vtu
+    +-- ...
 ```
 
 The design CSV should contain:
