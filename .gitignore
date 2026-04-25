@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Experiment artifacts
+data/
+data_ood/
+data_processed/
+outputs/
+artifacts/
+cache/
+checkpoints/
+logs/
+*.pth
+*.pt
+*.ckpt
+*.npy
+*.npz
+*.vtu
+*.vtm
+*.foam
+
+# Generated figures and papers
+*.aux
+*.bbl
+*.blg
+*.log
+*.synctex.gz
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
