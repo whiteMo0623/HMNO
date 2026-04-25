@@ -1,0 +1,53 @@
+project:
+  name: HMNO_DC_Thermal
+  seed: 2024
+  device: cuda
+
+data:
+  raw_csv_path: rack_crac_design.csv
+  vtu_root_path: data
+  processed_dir: data_processed
+  coords_path: data_processed/coords.npy
+  design_path: data_processed/design_params.npy
+  fields_dir: data_processed/fields
+  norm_stats_path: data_processed/norm_stats.json
+  split_scenarios_path: data_processed/split_scenarios.json
+  val_indices_path: data_processed/val_indices.npy
+  input_bounds: [0.0, 6.6, 0.0, 4.0, 0.0, 9.0]
+  train_ratio: 0.9
+  n_sample_per_batch: 8192
+  n_sample_val: 8192
+  compress_fields: true
+  sampling:
+    strategy: center_weighted
+    eps: 1.0e-3
+    gamma: 2.0
+    mix: 0.2
+    seed: 2024
+  norm:
+    rack_power: [1.0, 8.0]
+    crac_temp: [18.0, 22.0]
+    crac_fan: [70.0, 100.0]
+
+model:
+  fourier_features: 64
+  concat_xyz: true
+  trunk_in_dim: 131
+  trunk_layers: [131, 256, 256, 256, 128]
+  branch_layers: [14, 128, 128]
+  mixer_rank: 16
+  alpha_init: 0.01
+
+train:
+  batch_size: 16
+  epochs: 500
+  lr: 1.0e-3
+  weight_decay: 1.0e-5
+  num_workers: 4
+  pin_memory: true
+  loss_weights:
+    data: 1.0
+    pde: 0.1
+  best_metric: RMSE_C
+  log_interval: 10
+  save_dir: outputs/checkpoints
