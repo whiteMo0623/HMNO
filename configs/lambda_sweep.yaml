@@ -1,0 +1,3 @@
+base_config: configs/hmno.yaml
+lambda_values: [0.0, 0.01, 0.05, 0.1, 0.2, 0.5]
+output_root: outputs/lambda_sweep
